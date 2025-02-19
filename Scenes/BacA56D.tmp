@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://drpqiwqjitn1f"]
+
+[ext_resource type="Texture2D" uid="uid://c45xgebbs0ypq" path="res://Art/Japanese Background w Box.png" id="1_p67yp"]
+[ext_resource type="PackedScene" uid="uid://du7yru1t0xr3o" path="res://Scenes/MainScreen.tscn" id="2_yk4n8"]
+[ext_resource type="PackedScene" uid="uid://dcx463sauihx1" path="res://Scenes/Samurai.tscn" id="3_qa4u0"]
+
+[node name="Background" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.556953, 0.556953, 0.556953, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p67yp")
+expand_mode = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Art/Japanese Background w Box.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "86eaca9753d1a3fa15aa171d7a84f32b"
+metadata/_edit_lock_ = true
+
+[node name="MainScreenMarginContainer" parent="." instance=ExtResource("2_yk4n8")]
+layout_mode = 1
+offset_left = -306.0
+offset_top = 4.0
+offset_right = 299.0
+
+[node name="SamuraiNode2D" parent="." instance=ExtResource("3_qa4u0")]
+position = Vector2(879, 521)
+
+[node name="Samurai1" parent="SamuraiNode2D" index="0"]
+frame_progress = 0.140744
+
+[node name="Samurai2" parent="SamuraiNode2D" index="1"]
+frame_progress = 0.0872586
+
+[node name="Samurai3" parent="SamuraiNode2D" index="2"]
+frame_progress = 0.356005
+
+[editable path="SamuraiNode2D"]

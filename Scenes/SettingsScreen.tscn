@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://yg3ae6xk1506"]
+
+[ext_resource type="Texture2D" uid="uid://c68k24yfelaaq" path="res://Art/Japanese Background w Box.png" id="1_2r60j"]
+[ext_resource type="Script" path="res://Scripts/settings_screen.gd" id="1_jjta0"]
+[ext_resource type="FontFile" uid="uid://bfsebmekspia" path="res://Fonts/FujiFantastic-Bold.otf" id="2_g1kxa"]
+[ext_resource type="FontFile" uid="uid://dj1fshwgtoog3" path="res://Fonts/Uchiyama.otf" id="4_selas"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3wxku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w18b3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifcym"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efaaa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0g8yg"]
+
+[node name="SettingsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jjta0")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.646029, 0.646029, 0.646029, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2r60j")
+expand_mode = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Art/Japanese Background w Box.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "86eaca9753d1a3fa15aa171d7a84f32b"
+
+[node name="MainContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.0
+offset_top = 4.0
+offset_right = 299.0
+offset_bottom = 337.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VContainer" type="VBoxContainer" parent="Background/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_g1kxa")
+theme_override_font_sizes/font_size = 45
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="Background/MainContainer/VContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_selas")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3wxku")
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="Background/MainContainer/VContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_selas")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w18b3")
+text = "Load"
+
+[node name="ResetButton" type="Button" parent="Background/MainContainer/VContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_selas")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ifcym")
+text = "Reset"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Background/MainContainer/VContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_selas")
+text = "Fullscreen"
+
+[node name="VSeparator" type="VSeparator" parent="Background/MainContainer/VContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FullscreenCheckBox" type="CheckBox" parent="Background/MainContainer/VContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_efaaa")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Background/MainContainer/VContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_selas")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0g8yg")
+text = "Go Back"
+
+[connection signal="pressed" from="Background/MainContainer/VContainer/HBoxContainer4/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/HBoxContainer4/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/HBoxContainer4/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="toggled" from="Background/MainContainer/VContainer/HBoxContainer/FullscreenCheckBox" to="." method="_on_fullscreen_check_box_toggled"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/HBoxContainer3/BackButton" to="." method="_on_back_button_pressed"]

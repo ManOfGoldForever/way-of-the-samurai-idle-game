@@ -1,0 +1,139 @@
+[gd_scene load_steps=10 format=3 uid="uid://hrs8t3u8tc1l"]
+
+[ext_resource type="Script" path="res://Scripts/trade_screen.gd" id="1_gt23p"]
+[ext_resource type="PackedScene" uid="uid://13h4hs0ra4f1" path="res://Resources/samurai_animation.tscn" id="2_5yg2y"]
+[ext_resource type="Texture2D" uid="uid://c68k24yfelaaq" path="res://Art/Japanese Background w Box.png" id="2_awmrr"]
+[ext_resource type="FontFile" uid="uid://bfsebmekspia" path="res://Fonts/FujiFantastic-Bold.otf" id="3_75sq4"]
+[ext_resource type="Script" path="res://Scripts/bamboo.gd" id="3_iknk6"]
+[ext_resource type="FontFile" uid="uid://dj1fshwgtoog3" path="res://Fonts/Uchiyama.otf" id="4_4dbfi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yo5g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_la7v8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dre7b"]
+
+[node name="TradeScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gt23p")
+
+[node name="SamuraiAnimation" parent="." instance=ExtResource("2_5yg2y")]
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.646029, 0.646029, 0.646029, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_awmrr")
+expand_mode = 3
+script = ExtResource("3_iknk6")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Art/Japanese Background w Box.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "86eaca9753d1a3fa15aa171d7a84f32b"
+
+[node name="MainContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.0
+offset_top = 4.0
+offset_right = 299.0
+offset_bottom = 337.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VContainer" type="VBoxContainer" parent="Background/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("3_75sq4")
+theme_override_font_sizes/font_size = 45
+text = "Trade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YenLabel" type="RichTextLabel" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[node name="BambooTotalLabel" type="RichTextLabel" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_4dbfi")
+bbcode_enabled = true
+text = "[center][stock]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="BambooContainer" type="HBoxContainer" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BambooLabel" type="RichTextLabel" parent="Background/MainContainer/VContainer/BambooContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_4dbfi")
+bbcode_enabled = true
+text = "[center][stock]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="VSeparator" type="VSeparator" parent="Background/MainContainer/VContainer/BambooContainer"]
+layout_mode = 2
+
+[node name="BambooBuyButton" type="Button" parent="Background/MainContainer/VContainer/BambooContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4dbfi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5yo5g")
+text = "Buy Bamboo!"
+
+[node name="BambooSellButton" type="Button" parent="Background/MainContainer/VContainer/BambooContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4dbfi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_la7v8")
+text = "Sell Bamboo!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Background/MainContainer/VContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4dbfi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dre7b")
+text = "Go Back"
+
+[connection signal="BambooChanged" from="." to="Background" method="_on_trade_screen_bamboo_changed"]
+[connection signal="BambooPriceChange" from="Background" to="." method="_on_background_bamboo_price_change"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/BambooContainer/BambooBuyButton" to="." method="_on_bamboo_buy_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/BambooContainer/BambooSellButton" to="." method="_on_bamboo_sell_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,206 @@
+[gd_scene load_steps=21 format=3 uid="uid://dcx463sauihx1"]
+
+[ext_resource type="Script" path="res://Scripts/samurai.gd" id="1_1xqh2"]
+[ext_resource type="Texture2D" uid="uid://bb001ugrcbssq" path="res://Art/SamuraiAnimation.png" id="1_7ls5k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiyjo"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiw0u"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo1k6"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5co00"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f87m7"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62w2p"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60ws0"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xs6w"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(400, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yljvg"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(600, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd8e0"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(800, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsdfp"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(0, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buw35"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(200, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8vh4"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(400, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg8mn"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(600, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5fik"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(800, 400, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5y5l"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(0, 600, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u8pt"]
+atlas = ExtResource("1_7ls5k")
+region = Rect2(200, 600, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jjy0s"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xiyjo")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_eiw0u")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qo1k6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5co00")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_f87m7")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_62w2p")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_60ws0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xs6w")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3xs6w")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_yljvg")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_yd8e0")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_dsdfp")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_buw35")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_t8vh4")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_hg8mn")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_v5fik")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_w5y5l")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6u8pt")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_qo1k6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_eiw0u")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_xiyjo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 21.0
+}]
+
+[node name="SamuraiNode2D" type="Node2D" groups=["Samurai"]]
+script = ExtResource("1_1xqh2")
+
+[node name="Samurai1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-82, 0)
+sprite_frames = SubResource("SpriteFrames_jjy0s")
+frame_progress = 0.019241
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Art/SamuraiAnimation.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a65ad286aa0da1e44aa2c05536148d25"
+
+[node name="Samurai2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, 0)
+sprite_frames = SubResource("SpriteFrames_jjy0s")
+frame_progress = 0.986907
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Art/SamuraiAnimation.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a65ad286aa0da1e44aa2c05536148d25"
+
+[node name="Samurai3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(131, 0)
+sprite_frames = SubResource("SpriteFrames_jjy0s")
+frame_progress = 0.635359
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://Art/SamuraiAnimation.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a65ad286aa0da1e44aa2c05536148d25"

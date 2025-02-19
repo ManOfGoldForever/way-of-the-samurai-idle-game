@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c056fc38p54li"]
+
+[ext_resource type="Script" path="res://Scripts/auto_save.gd" id="1_b51r3"]
+
+[node name="AutoSave" type="Node"]
+script = ExtResource("1_b51r3")
+
+[node name="SaveTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]

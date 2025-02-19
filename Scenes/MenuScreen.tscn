@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpo0204ji3bau"]
+
+[ext_resource type="Script" path="res://Scripts/menu_screen.gd" id="1_3cfh4"]
+[ext_resource type="Texture2D" uid="uid://c68k24yfelaaq" path="res://Art/Japanese Background w Box.png" id="1_qv301"]
+[ext_resource type="FontFile" uid="uid://bfsebmekspia" path="res://Fonts/FujiFantastic-Bold.otf" id="2_5jlwe"]
+[ext_resource type="FontFile" uid="uid://dj1fshwgtoog3" path="res://Fonts/Uchiyama.otf" id="3_3kvk8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8opl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d87kl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iejgk"]
+
+[node name="MenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3cfh4")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.646029, 0.646029, 0.646029, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qv301")
+expand_mode = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Art/Japanese Background w Box.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "86eaca9753d1a3fa15aa171d7a84f32b"
+
+[node name="MainContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.0
+offset_top = 4.0
+offset_right = 299.0
+offset_bottom = 337.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VContainer" type="VBoxContainer" parent="Background/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_5jlwe")
+theme_override_font_sizes/font_size = 45
+text = "Way of the Samurai"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="GridContainer" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/v_separation = 15
+
+[node name="BackButton" type="Button" parent="Background/MainContainer/VContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3kvk8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l8opl")
+text = "Go Back"
+
+[node name="SettingsButton" type="Button" parent="Background/MainContainer/VContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3kvk8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d87kl")
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Background/MainContainer/VContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_3kvk8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iejgk")
+text = "Quit"
+
+[connection signal="pressed" from="Background/MainContainer/VContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

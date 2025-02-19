@@ -1,0 +1,181 @@
+[gd_scene load_steps=22 format=3 uid="uid://biyo235x1n76"]
+
+[ext_resource type="Script" path="res://Scripts/main_screen.gd" id="1_i7jgl"]
+[ext_resource type="Texture2D" uid="uid://c68k24yfelaaq" path="res://Art/Japanese Background w Box.png" id="1_xsk6l"]
+[ext_resource type="PackedScene" uid="uid://13h4hs0ra4f1" path="res://Resources/samurai_animation.tscn" id="2_ble6a"]
+[ext_resource type="FontFile" uid="uid://bfsebmekspia" path="res://Fonts/FujiFantastic-Bold.otf" id="2_gwlx6"]
+[ext_resource type="FontFile" uid="uid://dj1fshwgtoog3" path="res://Fonts/Uchiyama.otf" id="3_x2hcp"]
+[ext_resource type="Script" path="res://Scripts/background.gd" id="3_x72q8"]
+[ext_resource type="AudioStream" uid="uid://rx6t8kf1qfbe" path="res://Sounds/cartoon-doves-101457.wav" id="7_evawm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2rkn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jcfp5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eb77t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aovbj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x347e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gxoh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vvtnk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8j2do"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_024y0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vc3gb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnkda"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bu30t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4a041"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnh72"]
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_i7jgl")
+
+[node name="SamuraiAnimation" parent="." instance=ExtResource("2_ble6a")]
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.646029, 0.646029, 0.646029, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xsk6l")
+expand_mode = 3
+script = ExtResource("3_x72q8")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://Art/Japanese Background w Box.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "86eaca9753d1a3fa15aa171d7a84f32b"
+
+[node name="MainContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.0
+offset_top = 4.0
+offset_right = 299.0
+offset_bottom = 337.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VContainer" type="VBoxContainer" parent="Background/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_gwlx6")
+theme_override_font_sizes/font_size = 45
+text = "Way of the Samurai"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YenLabel" type="RichTextLabel" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_x2hcp")
+bbcode_enabled = true
+text = "[center][yen]"
+fit_content = true
+
+[node name="SamuraiLabel" type="RichTextLabel" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_x2hcp")
+bbcode_enabled = true
+text = "[center][samurai]"
+fit_content = true
+
+[node name="ButtonContainer" type="GridContainer" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="YenButton" type="Button" parent="Background/MainContainer/VContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x2hcp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x2rkn")
+text = "Earn Yen!"
+
+[node name="BuyButton" type="Button" parent="Background/MainContainer/VContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x2hcp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jcfp5")
+text = "Buy Samurai!"
+
+[node name="TradeButton" type="Button" parent="Background/MainContainer/VContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x2hcp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eb77t")
+text = "Trade!"
+
+[node name="ErrorLabel" type="Label" parent="Background/MainContainer/VContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_x2hcp")
+text = "[Error]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BirdButton" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 476.0
+offset_right = 296.0
+offset_bottom = 515.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aovbj")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x347e")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2gxoh")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vvtnk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_8j2do")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_024y0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vc3gb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_mnkda")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bu30t")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4a041")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dnh72")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background/BirdButton"]
+stream = ExtResource("7_evawm")
+
+[connection signal="ErrorStatus" from="." to="Background" method="_on_main_screen_error_status"]
+[connection signal="SamuraiChanged" from="." to="Background" method="_on_main_screen_samurai_changed"]
+[connection signal="YenChanged" from="." to="Background" method="_on_main_screen_yen_changed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/ButtonContainer/YenButton" to="." method="_on_yen_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/ButtonContainer/BuyButton" to="." method="_on_buy_button_pressed"]
+[connection signal="pressed" from="Background/MainContainer/VContainer/ButtonContainer/TradeButton" to="." method="_on_trade_button_pressed"]
+[connection signal="pressed" from="Background/BirdButton" to="Background" method="_on_bird_button_pressed"]
